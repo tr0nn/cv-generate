@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../fonts/HelveticaNeue.ttc);
+}
+
+body {
+  margin: 0;
+}
+.main-div {
+  position: relative;
+}
+.main-image {
+  width: 1920px;
+  height: 1080px;
+}
+.signature {
+  position: absolute;
+  top: 473px;
+  left: 1076px;
+  width: 299px;
+}
+.redberry-text {
+  position: absolute;
+  top: 25px;
+  left: 70px;
+  width: 236px;
+}
+.hr {
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  width: 1780px;
+}
+.add-rasume-btn {
+  position: absolute;
+  top: 513px;
+  left: 728px;
+  width: 464px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.add-rasume-btn:hover {
+  background-color: #383833;
+  cursor: pointer;
+}
+
+.add-rasume-btn:hover:active {
+  box-shadow: 0 5px #383833;
+  transform: translateY(3px);
+}
