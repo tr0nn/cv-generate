@@ -4,7 +4,7 @@ import { useState } from 'react';
 //import logo2 from './images/LOGO1.npg';
 import '../styles/App.css';
 
-import ComponentWraper from './ComponentWraper';
+import ComponentWraper from '../Components/ComponentWraper';
 
 function App() {
   const [homePageState, setHomePageState] = useState(true);

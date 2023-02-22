@@ -1,9 +1,9 @@
-import PersInfo from './PersInfo';
+import PersInfo from '../PageComponents/PersInfo';
 import { useState } from 'react';
-import Experience from './Experience';
-import Education from './Education';
-import Cv from './Cv';
-import SubmitResume from './SubmitResume';
+import Experience from '../PageComponents/Experience';
+import Education from '../PageComponents/Education';
+import Cv from '../PageComponents/Cv';
+import SubmitResume from '../PageComponents/SubmitResume';
 
 function CvWraper(props: any) {
   const [showPersInfo, setShowPersInfo] = useState(true);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import App from './App';
+import App from '../PageComponents/App';
 import CvWrapper from './CvWraper';
 
 function ComponentWraper() {
