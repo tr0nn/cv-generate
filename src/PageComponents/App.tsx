@@ -2,7 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 //import styled from 'styled-components';
 //import logo2 from './images/LOGO1.npg';
-import './styles/App.css';
+import '../styles/App.css';
+
+import ComponentWraper from './ComponentWraper';
 
 function App() {
   const [homePageState, setHomePageState] = useState(true);
@@ -12,18 +14,18 @@ function App() {
       <div className="main-div">
         <img
           className="main-image"
-          src={require('./images/shutt.png')}
+          src={require('../images/shutt.png')}
           alt="mainImage"
         />
 
         <img
           className="signature"
-          src={require('./images/LOGO1.png')}
+          src={require('../images/LOGO1.png')}
           alt="signature"
         />
         <img
           className="redberry-text"
-          src={require('./images/LOGO2.png')}
+          src={require('../images/LOGO2.png')}
           alt="redberry"
         />
         <button
@@ -38,7 +40,8 @@ function App() {
       </div>
     );
   };
-  return <div>{homePageState ? <Home /> : null}</div>;
+
+  return <div>{homePageState ? <Home /> : <ComponentWraper />}</div>;
 }
 
 export default App;
