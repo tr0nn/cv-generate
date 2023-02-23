@@ -11,18 +11,24 @@ function CvWraper(props: any) {
   const [showEducation, setShowEducation] = useState(false);
   const [showSubmitResume, setShowSubmitResume] = useState(false);
 
-  console.log(showPersInfo, nextExperience, showEducation, showSubmitResume);
+  const [nameInput, setNameInput] = useState();
+  const [watchNameInput, setWatchNameInput] = useState();
 
+  console.log('nameInput shi aris ' + nameInput);
   return (
     <div>
       {showPersInfo ? (
         <div>
+          <h1>{watchNameInput}</h1>
           <PersInfo
             stateChangerBack={props.stateChangerCv}
             stateChangerNext={setNextExperience}
             stateChangeHidePerInfo={setShowPersInfo}
+            //input
+            watchName={setWatchNameInput}
+            CwWrapperNameState={setNameInput}
           />
-          <Cv text={'text from CV page'} />
+          <Cv watchName={watchNameInput} CwWrapperNameState={nameInput} />
         </div>
       ) : null}
 
@@ -34,20 +40,19 @@ function CvWraper(props: any) {
             stateExperienceHide={setNextExperience}
             stateEqucationShow={setShowEducation}
           />
-          <Cv text={'text from CV page'} />
+          <Cv />
         </div>
       ) : null}
 
       {showEducation ? (
         <div>
-          {' '}
           <Education
             stateBackExperience={setNextExperience}
             stateBackHideEducation={setShowEducation}
             stateEducationHide={setShowEducation}
             stateSubmitResumeShow={setShowSubmitResume}
           />
-          <Cv text={'text from CV page'} />{' '}
+          <Cv />
         </div>
       ) : null}
 
