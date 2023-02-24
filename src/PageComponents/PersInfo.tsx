@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
+import '../styles/persInfo.css';
 import { useState } from 'react';
 
 type PersInfoInputs = {
@@ -10,10 +11,6 @@ type PersInfoInputs = {
 };
 
 function PersInfo(props: any) {
-  const [imageUpload, setImageUpload] = useState('url');
-
-  const [nameWatch, setNameWatch] = useState();
-
   const {
     register,
     handleSubmit,
@@ -30,61 +27,94 @@ function PersInfo(props: any) {
   //console.log(watch('name'));
 
   function onImageChange(e: any) {
-    setImageUpload(URL.createObjectURL(e.target.files[0]));
+    const imageUrl = URL.createObjectURL(e.target.files[0]);
+
+    props.watchImage(imageUrl);
   }
 
   return (
-    <div>
-      <h1>პირადი ინფო</h1>
-      <hr />
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          placeholder={'აკირა'}
-          {...register('name', { required: true })}
-          onInput={() => {
-            props.watchName(watch('name'));
+    <div className="PersInfo-wrapper-with-btn">
+      <div className="btn-Title">
+        <button
+          className="back-Btn"
+          onClick={() => props.stateChangerBack(false)}
+        >
+          back
+        </button>
+        <div className="title-hr">
+          <div className="title-13">
+            <h1>პირადი ინფო</h1>
+            <p className="x13">1/3</p>
+          </div>
+          <hr />
+        </div>
+      </div>
+
+      <div className="PersInfo-wrapper">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            placeholder={'აკირა'}
+            {...register('name', { required: true })}
+            onInput={() => {
+              props.watchName(watch('name'));
+            }}
+          />
+
+          <input
+            placeholder={'უზუმაკი'}
+            {...register('surname', { required: true })}
+            onInput={() => {
+              props.watchSurname(watch('surname'));
+            }}
+          />
+          {errors.surname && <span>this filed is required</span>}
+
+          <input
+            name="atvirte"
+            style={{ cursor: 'pointer' }}
+            type="file"
+            onChange={onImageChange}
+          />
+
+          <h3>ჩემ შესახებ (არასავალდებულო)</h3>
+          <input
+            placeholder={'ზოგადი ინფო შენ შესახებ'}
+            {...register('aboutMe')}
+            onInput={() => {
+              props.watchAboutMe(watch('aboutMe'));
+            }}
+          />
+
+          <h3>ელ-ფოსტა</h3>
+          <input
+            placeholder={'akira666@gmail.com'}
+            {...register('email')}
+            onInput={() => {
+              props.watchEmail(watch('email'));
+            }}
+          />
+
+          <h3>მობილურის ნომერი</h3>
+          <input
+            placeholder="+995 555 55 55 55"
+            {...register('phone')}
+            onInput={() => {
+              props.watchPhone(watch('phone'));
+            }}
+          />
+
+          <input type="submit" />
+        </form>
+
+        <button
+          onClick={() => {
+            props.stateChangerNext(true);
+            props.stateChangeHidePerInfo(false);
           }}
-        />
-
-        <input
-          placeholder={'უზუმაკი'}
-          {...register('surname', { required: true })}
-        />
-        {errors.surname && <span>this filed is required</span>}
-
-        <input
-          style={{ cursor: 'pointer' }}
-          type="file"
-          onChange={onImageChange}
-        />
-
-        <img style={{ width: 100 }} src={imageUpload} />
-
-        <h3>ჩემ შესახებ (არასავალდებულო)</h3>
-        <input
-          placeholder={'ზოგადი ინფო შენ შესახებ'}
-          {...register('aboutMe')}
-        />
-
-        <h3>ელ-ფოსტა</h3>
-        <input placeholder={'akira666@gmail.com'} {...register('email')} />
-
-        <h3>მობილურის ნომერი</h3>
-        <input placeholder="+995 555 55 55 55" {...register('phone')} />
-
-        <input type="submit" />
-      </form>
-
-      <button onClick={() => props.stateChangerBack(false)}>back</button>
-      <button
-        onClick={() => {
-          props.stateChangerNext(true);
-          props.stateChangeHidePerInfo(false);
-        }}
-      >
-        next{' '}
-      </button>
-      <h1>persInfo</h1>
+        >
+          next{' '}
+        </button>
+      </div>
     </div>
   );
 }

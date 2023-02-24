@@ -1,5 +1,6 @@
-import PersInfo from '../PageComponents/PersInfo';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import PersInfo from '../PageComponents/PersInfo';
 import Experience from '../PageComponents/Experience';
 import Education from '../PageComponents/Education';
 import Cv from '../PageComponents/Cv';
@@ -14,21 +15,49 @@ function CvWraper(props: any) {
   const [nameInput, setNameInput] = useState();
   const [watchNameInput, setWatchNameInput] = useState();
 
-  console.log('nameInput shi aris ' + nameInput);
+  const [surnameInput, setSurnameInput] = useState();
+  const [watchSurname, setWatchSurname] = useState();
+
+  const [watchImage, setWatchImage] = useState();
+
+  const [watchAboutMe, setWatchAboutMe] = useState();
+
+  const [watchEmail, setWatchEmail] = useState();
+
+  const [watchPhone, setWatchPhone] = useState();
+
   return (
     <div>
       {showPersInfo ? (
         <div>
-          <h1>{watchNameInput}</h1>
+          {' '}
           <PersInfo
             stateChangerBack={props.stateChangerCv}
             stateChangerNext={setNextExperience}
             stateChangeHidePerInfo={setShowPersInfo}
-            //input
+            //input Name
             watchName={setWatchNameInput}
             CwWrapperNameState={setNameInput}
+            //input Surname
+            watchSurname={setWatchSurname}
+            //input Image
+            watchImage={setWatchImage}
+            //input AboutMe
+            watchAboutMe={setWatchAboutMe}
+            //input Email
+            watchEmail={setWatchEmail}
+            //input Phone
+            watchPhone={setWatchPhone}
           />
-          <Cv watchName={watchNameInput} CwWrapperNameState={nameInput} />
+          <Cv
+            CwWrapperNameState={nameInput}
+            watchName={watchNameInput}
+            watchSurname={watchSurname}
+            watchImage={watchImage}
+            watchAboutMe={watchAboutMe}
+            watchEmail={watchEmail}
+            watchPhone={watchPhone}
+          />
         </div>
       ) : null}
 

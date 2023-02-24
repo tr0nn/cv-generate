@@ -1,0 +1,33 @@
+.PersInfo-wrapper-with-btn {
+  background-color: #f9f9f9;
+  float: left;
+  width: 1098px;
+  height: 1080px;
+}
+
+.PersInfo-wrapper {
+  background-color: red;
+  padding-left: 149px;
+}
+.btn-Title {
+  background-color: gray;
+  display: flex;
+}
+.back-Btn {
+  margin-left: 48px;
+}
+.title-hr {
+  margin-left: 61px;
+  background-color: green;
+  width: 798px;
+}
+.title-13 {
+  display: flex;
+}
+.x13 {
+  display: flex;
+  float: right;
+  margin-top: 29px;
+  margin-left: 577px;
+  background-color: darkcyan;
+}
