@@ -12,20 +12,38 @@ function CvWraper(props: any) {
   const [showEducation, setShowEducation] = useState(false);
   const [showSubmitResume, setShowSubmitResume] = useState(false);
 
+  //        PersInfo
   const [nameInput, setNameInput] = useState();
   const [watchNameInput, setWatchNameInput] = useState();
 
   const [surnameInput, setSurnameInput] = useState();
   const [watchSurname, setWatchSurname] = useState();
 
+  const [imageInput, setImageInput] = useState();
   const [watchImage, setWatchImage] = useState();
 
+  const [aboutMeInput, setAboutMeInput] = useState();
   const [watchAboutMe, setWatchAboutMe] = useState();
 
+  const [emailInput, setEmailInput] = useState();
   const [watchEmail, setWatchEmail] = useState();
 
+  const [phoneInput, setPhoneInput] = useState();
   const [watchPhone, setWatchPhone] = useState();
 
+  console.log(
+    nameInput +
+      ' ' +
+      surnameInput +
+      ' ' +
+      imageInput +
+      ' ' +
+      aboutMeInput +
+      ' ' +
+      emailInput +
+      ' ' +
+      phoneInput
+  );
   return (
     <div>
       {showPersInfo ? (
@@ -40,14 +58,19 @@ function CvWraper(props: any) {
             CwWrapperNameState={setNameInput}
             //input Surname
             watchSurname={setWatchSurname}
+            CvWrapperSurNameState={setSurnameInput}
             //input Image
             watchImage={setWatchImage}
+            CvWrapperImageState={setImageInput}
             //input AboutMe
             watchAboutMe={setWatchAboutMe}
+            CvWrapperAboutMeState={setAboutMeInput}
             //input Email
             watchEmail={setWatchEmail}
+            CvWrapperEmailState={setEmailInput}
             //input Phone
             watchPhone={setWatchPhone}
+            CvWrapperPhoneState={setPhoneInput}
           />
           <Cv
             CwWrapperNameState={nameInput}

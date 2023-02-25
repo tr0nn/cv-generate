@@ -14,7 +14,10 @@
   display: flex;
 }
 .back-Btn {
+  margin-top: 35px;
   margin-left: 48px;
+  width: 40px;
+  height: 40px;
 }
 .title-hr {
   margin-left: 61px;
