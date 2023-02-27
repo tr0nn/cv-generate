@@ -92,7 +92,15 @@ function CvWraper(props: any) {
             stateExperienceHide={setNextExperience}
             stateEqucationShow={setShowEducation}
           />
-          <Cv />
+          <Cv
+            CwWrapperNameState={nameInput}
+            watchName={watchNameInput}
+            watchSurname={watchSurname}
+            watchImage={watchImage}
+            watchAboutMe={watchAboutMe}
+            watchEmail={watchEmail}
+            watchPhone={watchPhone}
+          />
         </div>
       ) : null}
 
@@ -104,7 +112,15 @@ function CvWraper(props: any) {
             stateEducationHide={setShowEducation}
             stateSubmitResumeShow={setShowSubmitResume}
           />
-          <Cv />
+          <Cv
+            CwWrapperNameState={nameInput}
+            watchName={watchNameInput}
+            watchSurname={watchSurname}
+            watchImage={watchImage}
+            watchAboutMe={watchAboutMe}
+            watchEmail={watchEmail}
+            watchPhone={watchPhone}
+          />
         </div>
       ) : null}
 

@@ -30,9 +30,6 @@ function PersInfo(props: any) {
     props.CvWrapperPhoneState(data.phone);
   };
 
-  //props.watchName = watch('name');
-  //console.log(watch('name'));
-
   function onImageChange(e: any) {
     const imageUrl = URL.createObjectURL(e.target.files[0]);
     props.CvWrapperImageState(imageUrl);

@@ -21,7 +21,7 @@
 }
 .title-hr {
   margin-left: 61px;
-  background-color: green;
+  background-color: rgb(157, 157, 228);
   width: 798px;
 }
 .title-13 {
@@ -30,7 +30,6 @@
 .x13 {
   display: flex;
   float: right;
-  margin-top: 29px;
-  margin-left: 577px;
+  margin-left: 570px;
   background-color: darkcyan;
 }
