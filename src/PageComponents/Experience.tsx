@@ -14,7 +14,6 @@ function Experience(props: any) {
     register,
     handleSubmit,
     watch,
-    getValues,
     formState: { errors }
   } = useForm<ExperienceInputs>();
 
