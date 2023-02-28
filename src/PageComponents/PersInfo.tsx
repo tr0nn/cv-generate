@@ -24,7 +24,6 @@ function PersInfo(props: any) {
   const onSubmit: SubmitHandler<PersInfoInputs> = data => {
     props.CwWrapperNameState(data.name);
     props.CvWrapperSurNameState(data.surname);
-
     props.CvWrapperAboutMeState(data.aboutMe);
     props.CvWrapperEmailState(data.email);
     props.CvWrapperPhoneState(data.phone);

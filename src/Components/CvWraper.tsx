@@ -14,7 +14,7 @@ function CvWraper(props: any) {
 
   //        PersInfo
   const [nameInput, setNameInput] = useState();
-  const [watchNameInput, setWatchNameInput] = useState();
+  const [watchName, setWatchName] = useState();
 
   const [surnameInput, setSurnameInput] = useState();
   const [watchSurname, setWatchSurname] = useState();
@@ -31,6 +31,22 @@ function CvWraper(props: any) {
   const [phoneInput, setPhoneInput] = useState();
   const [watchPhone, setWatchPhone] = useState();
 
+  //       Experience
+  const [positionInput, setPositionInput] = useState();
+  const [watchPosition, setWatchPosition] = useState();
+
+  const [employerInput, setEmployerInput] = useState();
+  const [watchEmployer, setWatchEmployer] = useState();
+
+  const [startDateInput, setStartDateInput] = useState();
+  const [watchStartDate, setWatchStartDate] = useState();
+
+  const [endDateInput, setEndtDateInput] = useState();
+  const [watchEndtDate, setWatchEndDate] = useState();
+
+  const [DescriptionInput, setDescriptionInput] = useState();
+  const [watchDescription, setWatchDescription] = useState();
+
   console.log(
     nameInput +
       ' ' +
@@ -42,8 +58,38 @@ function CvWraper(props: any) {
       ' ' +
       emailInput +
       ' ' +
-      phoneInput
+      phoneInput +
+      '' +
+      positionInput +
+      ' ' +
+      employerInput +
+      ' ' +
+      startDateInput +
+      ' ' +
+      endDateInput +
+      ' ' +
+      DescriptionInput
   );
+
+  function CvProps() {
+    return (
+      <>
+        <Cv
+          watchName={watchName}
+          watchSurname={watchSurname}
+          watchImage={watchImage}
+          watchAboutMe={watchAboutMe}
+          watchEmail={watchEmail}
+          watchPhone={watchPhone}
+          watchPosition={watchPosition}
+          watchEmployer={watchEmployer}
+          watchStartDate={watchStartDate}
+          watchEndtDate={watchEndtDate}
+          watchDescription={watchDescription}
+        />
+      </>
+    );
+  }
   return (
     <div>
       {showPersInfo ? (
@@ -54,33 +100,25 @@ function CvWraper(props: any) {
             stateChangerNext={setNextExperience}
             stateChangeHidePerInfo={setShowPersInfo}
             //input Name
-            watchName={setWatchNameInput}
             CwWrapperNameState={setNameInput}
+            watchName={setWatchName}
             //input Surname
-            watchSurname={setWatchSurname}
             CvWrapperSurNameState={setSurnameInput}
+            watchSurname={setWatchSurname}
             //input Image
-            watchImage={setWatchImage}
             CvWrapperImageState={setImageInput}
+            watchImage={setWatchImage}
             //input AboutMe
-            watchAboutMe={setWatchAboutMe}
             CvWrapperAboutMeState={setAboutMeInput}
+            watchAboutMe={setWatchAboutMe}
             //input Email
-            watchEmail={setWatchEmail}
             CvWrapperEmailState={setEmailInput}
+            watchEmail={setWatchEmail}
             //input Phone
-            watchPhone={setWatchPhone}
             CvWrapperPhoneState={setPhoneInput}
+            watchPhone={setWatchPhone}
           />
-          <Cv
-            CwWrapperNameState={nameInput}
-            watchName={watchNameInput}
-            watchSurname={watchSurname}
-            watchImage={watchImage}
-            watchAboutMe={watchAboutMe}
-            watchEmail={watchEmail}
-            watchPhone={watchPhone}
-          />
+          <CvProps />
         </div>
       ) : null}
 
@@ -91,16 +129,23 @@ function CvWraper(props: any) {
             stateChangeBack={setNextExperience}
             stateExperienceHide={setNextExperience}
             stateEqucationShow={setShowEducation}
+            //
+            CvWrapperPositionState={setPositionInput}
+            watchPosition={setWatchPosition}
+            //
+            CvWrapperEmployerState={setEmployerInput}
+            watchEmployer={setWatchEmployer}
+            //
+            CvWrapperStartDateState={setStartDateInput}
+            watchStartDate={setWatchStartDate}
+            //
+            CvWrapperEndDateState={setEndtDateInput}
+            watchEndDate={setWatchEndDate}
+            //
+            CvWrapperDescriptionState={setDescriptionInput}
+            watchDescription={setWatchDescription}
           />
-          <Cv
-            CwWrapperNameState={nameInput}
-            watchName={watchNameInput}
-            watchSurname={watchSurname}
-            watchImage={watchImage}
-            watchAboutMe={watchAboutMe}
-            watchEmail={watchEmail}
-            watchPhone={watchPhone}
-          />
+          <CvProps />
         </div>
       ) : null}
 
@@ -112,15 +157,7 @@ function CvWraper(props: any) {
             stateEducationHide={setShowEducation}
             stateSubmitResumeShow={setShowSubmitResume}
           />
-          <Cv
-            CwWrapperNameState={nameInput}
-            watchName={watchNameInput}
-            watchSurname={watchSurname}
-            watchImage={watchImage}
-            watchAboutMe={watchAboutMe}
-            watchEmail={watchEmail}
-            watchPhone={watchPhone}
-          />
+          <CvProps />
         </div>
       ) : null}
 
