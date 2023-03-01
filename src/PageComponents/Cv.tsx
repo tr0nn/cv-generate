@@ -16,6 +16,10 @@ export default function Cv(props: any) {
       <h3>{props.watchStartDate}</h3>
       <h3>{props.watchEndtDate}</h3>
       <h3>{props.watchDescription}</h3>
+      <h3>{props.watchEducation}</h3>
+      <h3>{props.watchQuality}</h3>
+      <h3>{props.watchEducationEndDate}</h3>
+      <h3>{props.watchDescription2}</h3>
     </div>
   );
 }

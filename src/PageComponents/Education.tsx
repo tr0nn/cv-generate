@@ -7,7 +7,7 @@ type EducationInputs = {
   university: any;
   quality: string;
   educationEndDate: any;
-  description: string;
+  description2: string;
 };
 type EducationAxios = { id: any; title: string };
 
@@ -45,28 +45,31 @@ function Education(props: any) {
   } = useForm<EducationInputs>();
 
   const onSubmit: SubmitHandler<EducationInputs> = data => {
-    console.log(data.quality);
+    props.CvWrapperUniversityState(data.university);
+    props.CvWrapperQualityState(qualityAxiosVal);
+    props.CvWrapperEducationEndDateState(data.educationEndDate);
+    props.CvWrapperDescription2State(data.description2);
   };
 
   return (
     <div className="Education-wrapper">
       <div className="btn-Title">
         <button
-          className="back-Btn"
+          className="back-Btn-3"
           onClick={() => {
             props.stateBackExperience(true);
             props.stateBackHideEducation(false);
           }}
         >
-          back
+          {'<'}
         </button>
 
-        <div className="title-hr">
-          <div className="title-13">
-            <h1>განათლება</h1>
-            <p className="x13">3/3</p>
+        <div className="title-hr-3">
+          <div className="title-13-3">
+            <h1 className="education-title">განათლება</h1>
+            <p className="x13-3">3/3</p>
           </div>
-          <hr />
+          <hr className="pers-info-hr-3" />
         </div>
       </div>
 
@@ -76,14 +79,21 @@ function Education(props: any) {
           <input
             placeholder="სასწავლებელი"
             {...register('university', { required: true, minLength: 2 })}
+            onInput={() => {
+              props.watchUniversity(watch('university'));
+            }}
           />
           {errors.university && <span>მინიმუმ 2 სიმბოლო</span>}
 
           <h3>ხარისხი</h3>
           <select
-            onInput={axiosHandleChange}
             value={qualityAxiosVal}
             {...register('quality', { required: true })}
+            onInput={axiosHandleChange}
+            onChange={() => {
+              console.log(qualityAxiosVal);
+              props.watchQuality(qualityAxiosVal);
+            }}
           >
             {qualityAxios &&
               qualityAxios.map(qualityAxios => (
@@ -98,12 +108,18 @@ function Education(props: any) {
           <input
             type="date"
             {...register('educationEndDate', { required: true })}
+            onInput={() => {
+              props.watchEducationEndDate(watch('educationEndDate'));
+            }}
           />
 
           <h3>აღწერა</h3>
           <textarea
             placeholder="განათლების აღწერა"
-            {...register('description', { required: true })}
+            {...register('description2', { required: true })}
+            onInput={() => {
+              props.watchDescription2(watch('description2'));
+            }}
           />
 
           <input type="submit" />

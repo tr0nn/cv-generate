@@ -42,50 +42,58 @@ function PersInfo(props: any) {
           className="back-Btn"
           onClick={() => props.stateChangerBack(false)}
         >
-          back
+          {'<'}
         </button>
         <div className="title-hr">
           <div className="title-13">
-            <h1>პირადი ინფო</h1>
+            <h1 className="pers-info-title">პირადი ინფო</h1>
             <p className="x13">1/3</p>
           </div>
-          <hr />
+          <hr className="pers-info-hr" />
         </div>
       </div>
 
       <div className="PersInfo-wrapper">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            placeholder={'აკირა'}
-            {...register('name', {
-              required: true,
-              minLength: 2,
-              pattern: {
-                value: /^[ა-ჰ]+$/,
-                message: 'მინიმუმ 2 ასო, ქართული ასოები'
-              }
-            })}
-            onInput={() => {
-              props.watchName(watch('name'));
-            }}
-          />
-          {errors.name && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+          <div className="name-surname-wrapper">
+            <div className="name-wrapper">
+              <h3>სახელი</h3>
+              <input
+                placeholder={'აკირა'}
+                {...register('name', {
+                  required: true,
+                  minLength: 2,
+                  pattern: {
+                    value: /^[ა-ჰ]+$/,
+                    message: 'მინიმუმ 2 ასო, ქართული ასოები'
+                  }
+                })}
+                onInput={() => {
+                  props.watchName(watch('name'));
+                }}
+              />
+              {errors.name && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+            </div>
 
-          <input
-            placeholder={'უზუმაკი'}
-            {...register('surname', {
-              required: true,
-              minLength: 2,
-              pattern: {
-                value: /^[ა-ჰ]+$/,
-                message: 'მინიმუმ 2 ასო, ქართული ასოები'
-              }
-            })}
-            onInput={() => {
-              props.watchSurname(watch('surname'));
-            }}
-          />
-          {errors.surname && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+            <div className="surname-wrapper">
+              <h3>გვარი</h3>
+              <input
+                placeholder={'უზუმაკი'}
+                {...register('surname', {
+                  required: true,
+                  minLength: 2,
+                  pattern: {
+                    value: /^[ა-ჰ]+$/,
+                    message: 'მინიმუმ 2 ასო, ქართული ასოები'
+                  }
+                })}
+                onInput={() => {
+                  props.watchSurname(watch('surname'));
+                }}
+              />
+              {errors.surname && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+            </div>
+          </div>
 
           <input
             {...register('image', {

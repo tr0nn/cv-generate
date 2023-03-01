@@ -29,20 +29,20 @@ function Experience(props: any) {
     <div className="Experience-wrapper">
       <div className="btn-Title">
         <button
-          className="back-Btn"
+          className="back-Btn-2"
           onClick={() => {
             props.stateChangeBack(false);
             props.stateShowPersInfo(true);
           }}
         >
-          back
+          {'<'}
         </button>
-        <div className="title-hr">
-          <div className="title-13">
-            <h1>გამოცდილება</h1>
-            <p className="x13">2/3</p>
+        <div className="title-hr-2">
+          <div className="title-13-2">
+            <h1 className="experience-title">გამოცდილება</h1>
+            <p className="x13-2">2/3</p>
           </div>
-          <hr />
+          <hr className="pers-info-hr-2" />
         </div>
       </div>
 
@@ -102,16 +102,15 @@ function Experience(props: any) {
 
           <input type="submit" />
         </form>
+        <button
+          onClick={() => {
+            props.stateExperienceHide(false);
+            props.stateEqucationShow(true);
+          }}
+        >
+          next{' '}
+        </button>
       </div>
-
-      <button
-        onClick={() => {
-          props.stateExperienceHide(false);
-          props.stateEqucationShow(true);
-        }}
-      >
-        next{' '}
-      </button>
     </div>
   );
 }

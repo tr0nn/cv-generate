@@ -44,8 +44,21 @@ function CvWraper(props: any) {
   const [endDateInput, setEndtDateInput] = useState();
   const [watchEndtDate, setWatchEndDate] = useState();
 
-  const [DescriptionInput, setDescriptionInput] = useState();
+  const [descriptionInput, setDescriptionInput] = useState();
   const [watchDescription, setWatchDescription] = useState();
+
+  //      Education
+  const [educationInput, setEducationInput] = useState();
+  const [watchEducation, setWatchEducation] = useState();
+
+  const [qualityInput, setQualityInput] = useState();
+  const [watchQuality, setWatchQuality] = useState();
+
+  const [educationEndDateInput, setEducationEndDateInput] = useState();
+  const [watchEducationEndDate, setWatchEducationEndDate] = useState();
+
+  const [description2Input, setDescription2Input] = useState();
+  const [watchDescription2, setWatchDescription2] = useState();
 
   console.log(
     nameInput +
@@ -68,7 +81,15 @@ function CvWraper(props: any) {
       ' ' +
       endDateInput +
       ' ' +
-      DescriptionInput
+      descriptionInput +
+      ' ' +
+      educationInput +
+      ' ' +
+      qualityInput +
+      ' ' +
+      educationEndDateInput +
+      ' ' +
+      description2Input
   );
 
   function CvProps() {
@@ -86,6 +107,10 @@ function CvWraper(props: any) {
           watchStartDate={watchStartDate}
           watchEndtDate={watchEndtDate}
           watchDescription={watchDescription}
+          watchEducation={watchEducation}
+          watchQuality={watchQuality}
+          watchEducationEndDate={watchEducationEndDate}
+          watchDescription2={watchDescription2}
         />
       </>
     );
@@ -156,6 +181,18 @@ function CvWraper(props: any) {
             stateBackHideEducation={setShowEducation}
             stateEducationHide={setShowEducation}
             stateSubmitResumeShow={setShowSubmitResume}
+            //
+            watchUniversity={setWatchEducation}
+            CvWrapperUniversityState={setEducationInput}
+            //
+            watchQuality={setWatchQuality}
+            CvWrapperQualityState={setQualityInput}
+            //
+            watchEducationEndDate={setWatchEducationEndDate}
+            CvWrapperEducationEndDateState={setEducationEndDateInput}
+            //
+            watchDescription2={setWatchDescription2}
+            CvWrapperDescription2State={setDescription2Input}
           />
           <CvProps />
         </div>
@@ -165,6 +202,21 @@ function CvWraper(props: any) {
         <SubmitResume
           stateEducationShow={setShowEducation}
           stateSubmitResume={setShowSubmitResume}
+          nameInput={nameInput}
+          surnameInput={surnameInput}
+          imageInput={imageInput}
+          aboutMeInput={aboutMeInput}
+          emailInput={emailInput}
+          phoneInput={phoneInput}
+          positionInput={positionInput}
+          employerInput={employerInput}
+          startDateInput={startDateInput}
+          endDateInput={endDateInput}
+          descriptionInput={descriptionInput}
+          educationInput={educationInput}
+          qualityInput={qualityInput}
+          educationEndDateInput={educationEndDateInput}
+          description2Input={description2Input}
         />
       ) : null}
     </div>
