@@ -48,8 +48,9 @@ function Experience(props: any) {
 
       <div className="Experience-input-wrapper">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>თანამდებობა</h3>
+          <h3 className="position-title">თანამდებობა</h3>
           <input
+            className="pos-empl-input"
             placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
             {...register('position', {
               required: true,
@@ -59,10 +60,16 @@ function Experience(props: any) {
               props.watchPosition(watch('position'));
             }}
           />
-          {errors.position && <span>მინიმუმ 2 სიმბოლო</span>}
+          {errors.position && (
+            <span className="exp-error">
+              <br />
+              მინიმუმ 2 სიმბოლო
+            </span>
+          )}
 
-          <h3>დამსაქმებელი</h3>
+          <h3 className="experience-titles">დამსაქმებელი</h3>
           <input
+            className="pos-empl-input"
             placeholder={'დამსაქმებელი'}
             {...register('employer', {
               required: true,
@@ -72,27 +79,41 @@ function Experience(props: any) {
               props.watchEmployer(watch('employer'));
             }}
           />
-          {errors.employer && <span>მინიმუმ 2 სიმბოლო</span>}
+          {errors.employer && (
+            <span className="exp-error">
+              <br />
+              მინიმუმ 2 სიმბოლო
+            </span>
+          )}
 
-          <h3>დაწყების რიცხვი</h3>
-          <input
-            type="date"
-            {...register('startDate', { required: true })}
-            onInput={() => {
-              props.watchStartDate(watch('startDate'));
-            }}
-          />
-          <h3>დამთავრების რიცხვი</h3>
-          <input
-            type="date"
-            {...register('endDate', { required: true })}
-            onInput={() => {
-              props.watchEndDate(watch('endDate'));
-            }}
-          />
+          <div className="date-wrapper">
+            <div>
+              <h3 className="experience-titles">დაწყების რიცხვი</h3>
+              <input
+                className="date-input-2"
+                type="date"
+                {...register('startDate', { required: true })}
+                onInput={() => {
+                  props.watchStartDate(watch('startDate'));
+                }}
+              />
+            </div>
+            <div className="endDate-wrapper">
+              <h3 className="experience-titles">დამთავრების რიცხვი</h3>
+              <input
+                className="date-input-2"
+                type="date"
+                {...register('endDate', { required: true })}
+                onInput={() => {
+                  props.watchEndDate(watch('endDate'));
+                }}
+              />
+            </div>
+          </div>
 
-          <h3>აღწერა</h3>
+          <h3 className="experience-titles">აღწერა</h3>
           <textarea
+            className="textarea-input"
             placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
             {...register('description', { required: true })}
             onInput={() => {
@@ -100,7 +121,7 @@ function Experience(props: any) {
             }}
           />
 
-          <input type="submit" />
+          <input className="exp-submit-btn" type="submit" value={'შემდეგი'} />
         </form>
         <button
           onClick={() => {

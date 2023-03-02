@@ -75,46 +75,60 @@ function Education(props: any) {
 
       <div className="Education-input-wrapper">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>სასწავლებელი</h3>
+          <h3 className="university-title">სასწავლებელი</h3>
           <input
+            className="university-input"
             placeholder="სასწავლებელი"
             {...register('university', { required: true, minLength: 2 })}
             onInput={() => {
               props.watchUniversity(watch('university'));
             }}
           />
-          {errors.university && <span>მინიმუმ 2 სიმბოლო</span>}
+          {errors.university && (
+            <span className="exp-error">
+              {' '}
+              <br />
+              მინიმუმ 2 სიმბოლო
+            </span>
+          )}
+          <div className="quality-endDate-wrapper">
+            <div>
+              <h3>ხარისხი</h3>
+              <select
+                className="quality-endDate-style"
+                value={qualityAxiosVal}
+                {...register('quality', { required: true })}
+                onInput={axiosHandleChange}
+                onChange={() => {
+                  console.log(qualityAxiosVal);
+                  props.watchQuality(qualityAxiosVal);
+                }}
+              >
+                {qualityAxios &&
+                  qualityAxios.map(qualityAxios => (
+                    <option key={qualityAxios.id} value={qualityAxios.title}>
+                      {qualityAxios.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
 
-          <h3>ხარისხი</h3>
-          <select
-            value={qualityAxiosVal}
-            {...register('quality', { required: true })}
-            onInput={axiosHandleChange}
-            onChange={() => {
-              console.log(qualityAxiosVal);
-              props.watchQuality(qualityAxiosVal);
-            }}
-          >
-            {qualityAxios &&
-              qualityAxios.map(qualityAxios => (
-                <option key={qualityAxios.id} value={qualityAxios.title}>
-                  {qualityAxios.title}
-                </option>
-              ))}
-          </select>
-          <p>{qualityAxiosVal}</p>
-
-          <h3>დამთავრების რიცხვი</h3>
-          <input
-            type="date"
-            {...register('educationEndDate', { required: true })}
-            onInput={() => {
-              props.watchEducationEndDate(watch('educationEndDate'));
-            }}
-          />
+            <div className="endDate-input-edu">
+              <h3>დამთავრების რიცხვი</h3>
+              <input
+                className="quality-endDate-style"
+                type="date"
+                {...register('educationEndDate', { required: true })}
+                onInput={() => {
+                  props.watchEducationEndDate(watch('educationEndDate'));
+                }}
+              />
+            </div>
+          </div>
 
           <h3>აღწერა</h3>
           <textarea
+            className="description2"
             placeholder="განათლების აღწერა"
             {...register('description2', { required: true })}
             onInput={() => {
@@ -122,7 +136,7 @@ function Education(props: any) {
             }}
           />
 
-          <input type="submit" />
+          <input className="edu-submit-btn" type="submit" value={'დასრულება'} />
         </form>
         <button
           onClick={() => {

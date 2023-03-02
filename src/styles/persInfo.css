@@ -1,3 +1,7 @@
+input[type='file'] {
+  display: none;
+}
+
 .PersInfo-wrapper-with-btn {
   background-color: #f9f9f9;
   float: left;
@@ -58,11 +62,96 @@
 
 .name-surname-wrapper {
   display: flex;
+  margin-top: 20px;
 }
 .name-wrapper {
-  background-color: red;
   width: 300px;
+  width: 371px;
 }
 .surname-wrapper {
-  background-color: blue;
+  margin-left: 56px;
+  width: 371px;
+}
+.persInfo-name-surname {
+  font-family: 'Helvetica Neue';
+  size: 16px;
+
+  width: 100px;
+  margin-top: 10px;
+}
+.name-surname-input {
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  width: 371px;
+  height: 48px;
+}
+.name-error {
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.pers-photo-btn {
+  display: flex;
+  margin-top: 8px;
+  width: 500px;
+}
+
+.pers-photo-title {
+  font-family: 'Helvetica Neue';
+  font-size: 18px;
+}
+.upload-img-btn {
+  border-radius: 4px;
+  font-family: 'Helvetica Neue';
+  cursor: pointer;
+  background: #0e80bf;
+  border-radius: 4px;
+  margin-left: 19px;
+  margin-top: 15px;
+  width: 107px;
+  height: 27px;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.aboutMe-title {
+  font-family: 'Helvetica Neue';
+  font-size: 16px;
+}
+.aboutMe-input {
+  width: 798px;
+  height: 103px;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+}
+.email-phone-title {
+  font-family: 'Helvetica Neue';
+  font-size: 16px;
+}
+.email-phone-input {
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  width: 798px;
+  height: 48px;
+}
+.email-phone-error {
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+}
+.persInfo-submit-btn {
+  cursor: pointer;
+  width: 121px;
+  height: 38px;
+  font-family: 'Helvetica Neue';
+  background: #6b40e3;
+  font-size: 16px;
+  border-radius: 4px;
+  color: white;
+  margin-left: 683px;
+  margin-top: 94px;
 }

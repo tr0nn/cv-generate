@@ -57,8 +57,9 @@ function PersInfo(props: any) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="name-surname-wrapper">
             <div className="name-wrapper">
-              <h3>სახელი</h3>
+              <h3 className="persInfo-name-surname">სახელი</h3>
               <input
+                className="name-surname-input"
                 placeholder={'აკირა'}
                 {...register('name', {
                   required: true,
@@ -71,13 +72,19 @@ function PersInfo(props: any) {
                 onInput={() => {
                   props.watchName(watch('name'));
                 }}
-              />
-              {errors.name && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+              />{' '}
+              <br />
+              {errors.name && (
+                <span className="name-error">
+                  მინიმუმ 2 ასო, ქართული ასოები
+                </span>
+              )}
             </div>
 
             <div className="surname-wrapper">
-              <h3>გვარი</h3>
+              <h3 className="persInfo-name-surname">გვარი</h3>
               <input
+                className="name-surname-input"
                 placeholder={'უზუმაკი'}
                 {...register('surname', {
                   required: true,
@@ -90,23 +97,35 @@ function PersInfo(props: any) {
                 onInput={() => {
                   props.watchSurname(watch('surname'));
                 }}
-              />
-              {errors.surname && <span>მინიმუმ 2 ასო, ქართული ასოები</span>}
+              />{' '}
+              <br />
+              {errors.surname && (
+                <span className="name-error">
+                  მინიმუმ 2 ასო, ქართული ასოები
+                </span>
+              )}
             </div>
           </div>
 
-          <input
-            {...register('image', {
-              required: true
-            })}
-            name="atvirte"
-            style={{ cursor: 'pointer' }}
-            type="file"
-            onChange={onImageChange}
-          />
+          <div className="pers-photo-btn">
+            <h3 className="pers-photo-title">პირადი ფოტოს ატვირთვა</h3>
+            <label className="upload-img-btn">
+              <input
+                {...register('image', {
+                  required: true
+                })}
+                name="atvirte"
+                style={{ cursor: 'pointer' }}
+                type="file"
+                onChange={onImageChange}
+              />
+              ატვირთვა
+            </label>
+          </div>
 
-          <h3>ჩემ შესახებ (არასავალდებულო)</h3>
+          <h3 className="aboutMe-title">ჩემ შესახებ (არასავალდებულო)</h3>
           <input
+            className="aboutMe-input"
             placeholder={'ზოგადი ინფო შენ შესახებ'}
             {...register('aboutMe')}
             onInput={() => {
@@ -114,10 +133,10 @@ function PersInfo(props: any) {
             }}
           />
 
-          <h3>ელ-ფოსტა</h3>
-          <h6>bakar@redberry.ge</h6>
+          <h3 className="email-phone-title">ელ-ფოსტა</h3>
           <input
-            placeholder={'akira666@gmail.com'}
+            className="email-phone-input"
+            placeholder={'akira666@redberry.ge'}
             {...register('email', {
               required: true,
               pattern: {
@@ -129,11 +148,17 @@ function PersInfo(props: any) {
               props.watchEmail(watch('email'));
             }}
           />
-          {errors.email && <span>უნდა მთავრდებოდეს @redberry.ge-ით</span>}
+          {errors.email && (
+            <span className="email-phone-error">
+              {' '}
+              <br />
+              უნდა მთავრდებოდეს @redberry.ge-ით
+            </span>
+          )}
 
-          <h3>მობილურის ნომერი</h3>
-          <h6>+995514636969</h6>
+          <h3 className="email-phone-title">მობილურის ნომერი</h3>
           <input
+            className="email-phone-input"
             placeholder="+995 555 55 55 55"
             {...register('phone', {
               required: true,
@@ -147,12 +172,20 @@ function PersInfo(props: any) {
             }}
           />
           {errors.phone && (
-            <span>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</span>
+            <span className="email-phone-error">
+              <br />
+              უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
+            </span>
           )}
 
-          <input type="submit" />
-        </form>
+          <br />
 
+          <input
+            className="persInfo-submit-btn"
+            type="submit"
+            value={'შემდეგი'}
+          />
+        </form>{' '}
         <button
           onClick={() => {
             props.stateChangerNext(true);

@@ -52,3 +52,53 @@
   margin-top: 0;
   border: 1px solid #1a1a1a;
 }
+
+.position-title {
+  font-size: 16px;
+  font-family: 'Helvetica Neue';
+  margin-top: 30px;
+}
+.experience-titles {
+  font-size: 16px;
+  font-family: 'Helvetica Neue';
+}
+.pos-empl-input {
+  width: 798px;
+  height: 48px;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+}
+.exp-error {
+  font-size: 14px;
+  font-family: 'Helvetica Neue';
+}
+.date-wrapper {
+  display: flex;
+}
+.endDate-wrapper {
+  margin-left: 58px;
+}
+.date-input-2 {
+  width: 371px;
+  height: 48px;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+}
+.textarea-input {
+  width: 798px;
+  height: 123px;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+}
+.exp-submit-btn {
+  cursor: pointer;
+  width: 121px;
+  height: 38px;
+  font-family: 'Helvetica Neue';
+  background: #6b40e3;
+  font-size: 16px;
+  border-radius: 4px;
+  color: white;
+  margin-left: 683px;
+  margin-top: 94px;
+}
