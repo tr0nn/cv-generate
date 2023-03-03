@@ -1,4 +1,82 @@
+.name-surname-wrapper-cv {
+  display: flex;
+}
+
+.name {
+  margin-left: 80px;
+  margin-top: 68px;
+  font-family: 'Helvetica Neue';
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+
 .surname {
-  background-color: red;
   margin-left: 20px;
+  margin-top: 68px;
+  font-family: 'Helvetica Neue';
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+.email {
+  display: flex;
+  width: 320px;
+  padding-left: 80px;
+  font-family: 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: -30px;
+}
+.phone {
+  display: flex;
+  width: 320px;
+  padding-left: 80px;
+  font-family: 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: -10px;
+}
+.spaceIcon {
+  margin-right: 10px;
+  width: 16.67px;
+  height: 16.67px;
+}
+.aboutMe-wrapper {
+  padding-left: 80px;
+  margin-top: -30px;
+  display: flex;
+}
+.aboutMe {
+  word-wrap: break-word;
+  width: 432px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 30px;
+}
+.aboutMe h2 {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.image {
+  border-radius: 50%;
+  width: 246px;
+  height: 246px;
+  display: flex;
+  margin-right: 100px;
+}
+.persInfo-photo {
+  display: flex;
+}
+.only-photo {
+  margin-top: 48px;
 }
