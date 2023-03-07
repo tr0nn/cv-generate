@@ -153,3 +153,49 @@
   word-wrap: break-word;
   display: flex;
 }
+.edu-cv-title {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+  display: flex;
+  padding-left: 80px;
+}
+.edu-qua-wrapper {
+  display: flex;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  padding-left: 80px;
+  margin-top: -10px;
+}
+.quality-cv-title {
+  padding-left: 20px;
+}
+.eud-end {
+  display: flex;
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+  padding-left: 80px;
+  margin-top: -5px;
+}
+.edu-desc {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+  padding-left: 80px;
+  display: flex;
+}

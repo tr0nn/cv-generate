@@ -2,8 +2,6 @@ import { useState } from 'react';
 import '../styles/Cv.css';
 
 export default function Cv(props: any) {
-  const [experienceShow, setExperienceShow] = useState(false);
-  const [educationShow, setEducationShow] = useState(false);
   return (
     <div className="cv-wrapper">
       <div className="persInfo-photo">
@@ -47,7 +45,7 @@ export default function Cv(props: any) {
         </div>
       </div>
 
-      {props.watchAboutMe ? <hr className="cv-hr" /> : null}
+      {props.watchPhone ? <hr className="cv-hr" /> : null}
 
       <div className="Experience-cv-wrapper">
         {props.watchPosition ? (
@@ -55,13 +53,13 @@ export default function Cv(props: any) {
         ) : null}
 
         <div className="pos-empl-wrapper">
-          <h3 className="cv-position-title">{props.watchPosition + ','}</h3>
+          <h3 className="cv-position-title">{props.watchPosition}</h3>
 
           <h3 className="cv-empl-title">{props.watchEmployer}</h3>
         </div>
 
         <div className="expstart-end-wrappper">
-          <h3 className="exp-start">{props.watchStartDate + ' -'}</h3>
+          <h3 className="exp-start">{props.watchStartDate}</h3>
 
           <h3 className="exp-end">{props.watchEndtDate}</h3>
           <div />
@@ -69,11 +67,20 @@ export default function Cv(props: any) {
         <h3 className="exp-descr">{props.watchDescription}</h3>
       </div>
 
-      <h3>{props.watchEducation}</h3>
-      <h3>{props.watchQuality}</h3>
-      <h3>{props.watchEducationEndDate}</h3>
-      <h3>{props.watchDescription2}</h3>
+      {props.watchDescription ? <hr className="cv-hr" /> : null}
 
+      <div className="education-cv-wrapper">
+        {props.watchEducation ? (
+          <h3 className="edu-cv-title">განათლება</h3>
+        ) : null}
+
+        <div className="edu-qua-wrapper">
+          <h3>{props.watchEducation}</h3>
+          <h3 className="quality-cv-title">{props.watchQuality}</h3>
+        </div>
+        <h3 className="eud-end">{props.watchEducationEndDate}</h3>
+        <h3 className="edu-desc">{props.watchDescription2}</h3>
+      </div>
       {/*<h1>Cv bakar@redberry.ge +995514636969</h1>*/}
     </div>
   );
