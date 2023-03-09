@@ -9,6 +9,7 @@
   margin-left: 461px;
   margin-top: 54px;
   padding-left: 80px;
+  padding-right: 80px;
   padding-top: 58px;
 }
 
@@ -34,4 +35,7 @@
   border-radius: 50%;
   width: 246px;
   height: 246px;
+}
+.sub-name-surname-wrapper {
+  display: flex;
 }

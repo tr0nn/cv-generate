@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import '../styles/persInfo.css';
 import { useState } from 'react';
-import CvWraper from '../Components/CvWraper';
 
 type PersInfoInputs = {
   name: string;
@@ -13,6 +12,7 @@ type PersInfoInputs = {
 };
 
 function PersInfo(props: any) {
+  const [counter, setCounter] = useState(0);
   const {
     register,
     handleSubmit,
@@ -184,6 +184,25 @@ function PersInfo(props: any) {
             className="persInfo-submit-btn"
             type="submit"
             value={'შემდეგი'}
+            onClick={() => {
+              if (
+                !errors.name &&
+                !errors.surname &&
+                !errors.image &&
+                !errors.aboutMe &&
+                !errors.email &&
+                !errors.phone &&
+                counter > 0
+              ) {
+                props.stateChangerNext(true);
+                props.stateChangeHidePerInfo(false);
+
+                console.log(counter);
+              } else {
+                setCounter(counter + 1);
+                console.log(counter);
+              }
+            }}
           />
         </form>{' '}
         <button
