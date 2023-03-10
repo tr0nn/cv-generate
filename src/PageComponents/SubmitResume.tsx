@@ -1,7 +1,47 @@
 import styled from 'styled-components';
 import '../styles/submitCv.css';
+import axios from 'axios';
+import React from 'react';
 
 function SubmitResume(props: any) {
+  const useDate = {
+    name: props.nameInput,
+    surname: props.surnameInput,
+    email: props.emailInput,
+    phone_number: props.phoneInput,
+    experiences: [
+      {
+        position: props.positionInput,
+        employer: props.employerInput,
+        start_date: props.startDateInput,
+        due_date: props.endDateInput,
+        description: props.descriptionInput
+      }
+    ],
+    educations: [
+      {
+        institute: props.educationInput,
+        degree: props.qualityInput,
+        due_date: props.educationEndDateInput,
+        description: props.description2Input
+      }
+    ],
+    image: props.imageInput,
+    about_me: props.aboutMeInput
+  };
+
+  React.useEffect(() => {
+    axios
+      .post('https://resume.redberryinternship.ge/api/cvs', useDate)
+      .then(response => {
+        console.log('status :', response.status);
+        console.log('data', response.data);
+      })
+      .catch(error => {
+        console.log('something went wrong', error);
+      });
+  });
+
   return (
     <div className="subtmi-cv-main">
       <div>
