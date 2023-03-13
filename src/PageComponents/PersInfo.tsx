@@ -17,7 +17,6 @@ function PersInfo(props: any) {
     register,
     handleSubmit,
     watch,
-    getValues,
     formState: { errors }
   } = useForm<PersInfoInputs>();
 

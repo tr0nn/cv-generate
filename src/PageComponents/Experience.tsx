@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import '../styles/Experience.css';
 import '../styles/persInfo.css';
@@ -10,6 +11,7 @@ type ExperienceInputs = {
   description: string;
 };
 function Experience(props: any) {
+  const [counter, setCounter] = useState(0);
   const {
     register,
     handleSubmit,
@@ -121,7 +123,28 @@ function Experience(props: any) {
             }}
           />
 
-          <input className="exp-submit-btn" type="submit" value={'შემდეგი'} />
+          <input
+            className="exp-submit-btn"
+            type="submit"
+            value={'შემდეგი'}
+            onClick={() => {
+              if (
+                !errors.description &&
+                !errors.employer &&
+                !errors.endDate &&
+                !errors.position &&
+                !errors.startDate &&
+                counter > 0
+              ) {
+                props.stateExperienceHide(false);
+                props.stateEqucationShow(true);
+                console.log(counter);
+              } else {
+                setCounter(counter + 1);
+                console.log(counter);
+              }
+            }}
+          />
         </form>
         <button
           onClick={() => {
