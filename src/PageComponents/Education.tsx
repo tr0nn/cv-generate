@@ -13,6 +13,7 @@ type EducationAxios = { id: any; title: string };
 
 function Education(props: any) {
   const [qualityAxios, setQualityAxios] = useState<EducationAxios[] | null>();
+  const [counter, setCounter] = useState(0);
 
   const getInitialState = () => {
     const value = '';
@@ -136,7 +137,27 @@ function Education(props: any) {
             }}
           />
 
-          <input className="edu-submit-btn" type="submit" value={'დასრულება'} />
+          <input
+            className="edu-submit-btn"
+            type="submit"
+            value={'დასრულება'}
+            onClick={() => {
+              if (
+                !errors.description2 &&
+                !errors.educationEndDate &&
+                !errors.quality &&
+                !errors.university &&
+                counter > 0
+              ) {
+                props.stateEducationHide(false);
+                props.stateSubmitResumeShow(true);
+                console.log(counter);
+              } else {
+                setCounter(counter + 1);
+                console.log(counter);
+              }
+            }}
+          />
         </form>
         <button
           onClick={() => {
