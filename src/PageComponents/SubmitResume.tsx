@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import '../styles/submitCv.css';
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 
 function SubmitResume(props: any) {
+  const [modalState, setModalState] = useState(true);
   const useDate = {
     name: props.nameInput,
     surname: props.surnameInput,
@@ -41,6 +42,23 @@ function SubmitResume(props: any) {
         console.log('something went wrong', error);
       });
   });
+
+  function ModalAlert() {
+    return (
+      <ModalDiv>
+        <DivFlex>
+          <TextImg src={require('../images/resumeSent.png')} />
+          <XButton
+            onClick={() => {
+              setModalState(false);
+            }}
+          >
+            <img src={require('../images/Vector3.png')} />
+          </XButton>
+        </DivFlex>
+      </ModalDiv>
+    );
+  }
 
   return (
     <div className="subtmi-cv-main">
@@ -117,9 +135,7 @@ function SubmitResume(props: any) {
         <EduDesc>{props.description2Input}</EduDesc>
       </div>
 
-      <div>
-        <h1>რეზიუმე წარემატებით გაიგზავნა</h1>
-      </div>
+      <div>{modalState ? <ModalAlert /> : null}</div>
     </div>
   );
 }
@@ -281,4 +297,29 @@ const EduDesc = styled.h3`
   font-size: 16px;
   line-height: 22px;
   text-transform: lowercase;
+`;
+
+const ModalDiv = styled.div`
+  margin-top: 53px;
+  margin-left: 52px;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  width: 427px;
+  height: 167px;
+  padding-left: 30px;
+  padding-top: 17px;
+`;
+
+const XButton = styled.button`
+  margin-left: 90px;
+  width: 13px;
+  height: 13px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+`;
+
+const TextImg = styled.img`
+  margin-top: 40px;
 `;
